@@ -10,20 +10,7 @@ numPlayers = random.randint(1, 4)
 FPS = 60
 WALL_IMG = pygame.image.load(os.path.join('Hackathon2022\Assets', 'wall.png'))
 
-# class Menu(object):
-#     def __init__(self, title) -> None: #class for menu 
-#         self.title = title
-#     def testFunc (self)-> str:
-#         return self.title
-
-# class gameInstance(Menu): #class for gameInstance
-#     def __init__(self) -> None:
-#         pass
-# class Arena(gameInstance): #class for Arena 
-#     def __init__(self) -> None:
-#         pass
-
-class Entity(): #class for Entity, remeber that it extends Arena 
+class Entity():  
     def __init__(self) -> None:
         pass
     # checklist
@@ -42,17 +29,6 @@ class obstacle(Entity): #class for obstacle
     # checklist
     # - set pos of each obstacle and have more when each player joins 
     # - do we want the objects to break?
-        
-# class Powerup(Entity): #class for Powerup
-#     def __init__(self) -> None:
-#         self.powerupWidth = 10
-#         self.powerupHeight = 10
-#     # checklist
-#     # - what kinds of powerups do we want on the map?
-# class health(Powerup):
-#     def __init__(self) -> None:
-#         super().__init__()
-# #integers for random block generation
 
 def draw_window():
     WIN.fill(WHITE)
