@@ -6,6 +6,9 @@ WIDTH, HEIGHT = 1280, 720 #width and height of game window
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("testing")
 WHITE = (255, 255, 255)
+
+
+#paste the following code below
 numPlayers = random.randint(1, 4)
 FPS = 60
 WALL_IMG = pygame.image.load(os.path.join('Hackathon2022\JackyC\JackyAssets', 'wall.png'))
@@ -50,7 +53,7 @@ def draw_boxes(xArr, yArr):
         WIN.blit(obst.WALL, (xArr[i], yArr[i]))
     pygame.display.update()
 
-def gameInstance():
+def gameInstance(): #can ignore this line for copy pasting
     clock = pygame.time.Clock()
     inst = True
     twoTuple = take_arr()
@@ -61,8 +64,8 @@ def gameInstance():
                 inst = False
         draw_window()
         draw_boxes(twoTuple[0], twoTuple[1])
-
-    pygame.quit()
+    pygame.quit() #can ignore this line for copy pasting
+#copying the code for pasting ends here
 
 if __name__ == "__main__":
     gameInstance()
