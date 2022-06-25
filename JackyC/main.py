@@ -7,8 +7,9 @@ WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("testing")
 WHITE = (255, 255, 255)
 numPlayers = random.randint(1, 4)
+numObst = numPlayers * 4
 FPS = 60
-WALL_IMG = pygame.image.load(os.path.join('Hackathon2022\JackyC\JackyAssets', 'wall.png'))
+WALL_IMG = pygame.image.load(os.path.join('JackyC\JackyAssets','wall.png'))
 
 class Entity():  
     def __init__(self) -> None:
@@ -37,7 +38,7 @@ def draw_window():
 def take_arr():
     xArr = []
     yArr = []
-    for i in range(0, 10*numPlayers):
+    for i in range(0, numObst):
         x = 1*random.randint(100, 1180)
         y = 1*random.randint(100, 620)
         xArr.append(x)
@@ -46,7 +47,7 @@ def take_arr():
 
 def draw_boxes(xArr, yArr):
     obst = obstacle(50, 50)
-    for i in range(0, 10*numPlayers):
+    for i in range(0, numObst):
         WIN.blit(obst.WALL, (xArr[i], yArr[i]))
     pygame.display.update()
 
@@ -54,13 +55,15 @@ def gameInstance():
     clock = pygame.time.Clock()
     inst = True
     twoTuple = take_arr()
+    draw_window()
+    draw_boxes(twoTuple[0], twoTuple[1])
     while inst:
         clock.tick(FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 inst = False
-        draw_window()
-        draw_boxes(twoTuple[0], twoTuple[1])
+        
+        
 
     pygame.quit()
 
