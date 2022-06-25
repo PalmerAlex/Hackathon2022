@@ -8,7 +8,7 @@ pygame.display.set_caption("testing")
 WHITE = (255, 255, 255)
 numPlayers = random.randint(1, 4)
 FPS = 60
-WALL_IMG = pygame.image.load(os.path.join('Hackathon2022\Assets', 'wall.png'))
+WALL_IMG = pygame.image.load(os.path.join('Hackathon2022\JackyC\JackyAssets', 'wall.png'))
 
 class Entity():  
     def __init__(self) -> None:
