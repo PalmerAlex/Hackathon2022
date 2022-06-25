@@ -9,7 +9,7 @@ WHITE = (255, 255, 255)
 numPlayers = random.randint(1, 4)
 numObst = numPlayers * 4
 FPS = 60
-WALL_IMG = pygame.image.load(os.path.join('JackyC\JackyAssets','wall.png'))
+WALL_IMG = pygame.image.load(os.path.join('Hackathon2022\JackyC\JackyAssets','wall.png'))
 
 class Entity():  
     def __init__(self) -> None:
@@ -17,19 +17,14 @@ class Entity():
     # checklist
     # - What shared/abstract methods do we want for this class
 
-class Tank(Entity): #class for Tank
-    def __init__(self, dmg) -> None:
-        self.dmg = dmg
-
 class obstacle(Entity): #class for obstacle
     def __init__(self, width, height) -> None:
         self.width = width
         self.height = height
         self.WALL = pygame.transform.scale(WALL_IMG, (width, height))
-
     # checklist
-    # - set pos of each obstacle and have more when each player joins 
-    # - do we want the objects to break?
+    # implement object collisions 
+    # spread out the boxes a bit more +-25
 
 def draw_window():
     WIN.fill(WHITE)
@@ -51,6 +46,13 @@ def draw_boxes(xArr, yArr):
         WIN.blit(obst.WALL, (xArr[i], yArr[i]))
     pygame.display.update()
 
+def collide_action(xArr, yArr):
+    obst = obstacle(50, 50)
+    for i in range(0, numObst):
+        WALL_Rect = obst.WALL.get_rect(center=(xArr[i], yArr[i]))
+        if(WALL_Rect.colliderect()): #implement collisions  
+            pass
+
 def gameInstance():
     clock = pygame.time.Clock()
     inst = True
@@ -63,8 +65,6 @@ def gameInstance():
             if event.type == pygame.QUIT:
                 inst = False
         
-        
-
     pygame.quit()
 
 if __name__ == "__main__":
